@@ -16,7 +16,7 @@ Maven Project add this dependency to your pom.xml:
 
 For gradle add this line to your build.gradle:
 ```
-implementation 'io.citizenjournalist.speech:transcription-lib-grpc:1.0'
+implementation 'io.citizenjournalist.speech:transcription-lib-grpc:1.1'
 ```
 
 ## Sample
