@@ -10,6 +10,7 @@ package sftpprocessor;
 enum SubtitleFormat {
   VTT = 0;
   SRT = 1;
+  MP3 = 2;
 }
 
 enum Language {
@@ -19,6 +20,8 @@ enum Language {
   FR = 3;
   IT = 4;
   ES = 5;
+  CA = 6;
+  UK = 7;
 }
 
 // The greeting service definition.

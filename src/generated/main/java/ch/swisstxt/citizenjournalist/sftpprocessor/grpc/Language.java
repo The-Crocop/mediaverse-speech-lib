@@ -32,6 +32,14 @@ public enum Language
    * <code>ES = 5;</code>
    */
   ES(5),
+  /**
+   * <code>CA = 6;</code>
+   */
+  CA(6),
+  /**
+   * <code>UK = 7;</code>
+   */
+  UK(7),
   UNRECOGNIZED(-1),
   ;
 
@@ -59,6 +67,14 @@ public enum Language
    * <code>ES = 5;</code>
    */
   public static final int ES_VALUE = 5;
+  /**
+   * <code>CA = 6;</code>
+   */
+  public static final int CA_VALUE = 6;
+  /**
+   * <code>UK = 7;</code>
+   */
+  public static final int UK_VALUE = 7;
 
 
   public final int getNumber() {
@@ -91,6 +107,8 @@ public enum Language
       case 3: return FR;
       case 4: return IT;
       case 5: return ES;
+      case 6: return CA;
+      case 7: return UK;
       default: return null;
     }
   }

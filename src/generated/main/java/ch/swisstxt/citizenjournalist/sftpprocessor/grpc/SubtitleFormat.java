@@ -16,6 +16,10 @@ public enum SubtitleFormat
    * <code>SRT = 1;</code>
    */
   SRT(1),
+  /**
+   * <code>MP3 = 2;</code>
+   */
+  MP3(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -27,6 +31,10 @@ public enum SubtitleFormat
    * <code>SRT = 1;</code>
    */
   public static final int SRT_VALUE = 1;
+  /**
+   * <code>MP3 = 2;</code>
+   */
+  public static final int MP3_VALUE = 2;
 
 
   public final int getNumber() {
@@ -55,6 +63,7 @@ public enum SubtitleFormat
     switch (value) {
       case 0: return VTT;
       case 1: return SRT;
+      case 2: return MP3;
       default: return null;
     }
   }

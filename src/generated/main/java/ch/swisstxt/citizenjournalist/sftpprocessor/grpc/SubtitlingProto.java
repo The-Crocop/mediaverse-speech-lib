@@ -59,14 +59,15 @@ public final class SubtitlingProto {
       "sftpprocessor.SubtitleFormatH\001\210\001\001\022)\n\010lan" +
       "guage\030\004 \001(\0162\027.sftpprocessor.Language\022\020\n\010" +
       "original\030\005 \001(\010\022\013\n\003cid\030\006 \001(\tB\024\n\022_external" +
-      "ReferenceB\t\n\007_format*\"\n\016SubtitleFormat\022\007" +
-      "\n\003VTT\020\000\022\007\n\003SRT\020\001*<\n\010Language\022\010\n\004NONE\020\000\022\006" +
-      "\n\002EN\020\001\022\006\n\002DE\020\002\022\006\n\002FR\020\003\022\006\n\002IT\020\004\022\006\n\002ES\020\0052f" +
-      "\n\nSubtitling\022X\n\nTranscribe\022#.sftpprocess" +
-      "or.TranscriptionRequest\032!.sftpprocessor." +
-      "TranscriptionReply\"\0000\001BK\n0ch.swisstxt.ci" +
-      "tizenjournalist.sftpprocessor.grpcB\017Subt" +
-      "itlingProtoP\001\242\002\003STPb\006proto3"
+      "ReferenceB\t\n\007_format*+\n\016SubtitleFormat\022\007" +
+      "\n\003VTT\020\000\022\007\n\003SRT\020\001\022\007\n\003MP3\020\002*L\n\010Language\022\010\n" +
+      "\004NONE\020\000\022\006\n\002EN\020\001\022\006\n\002DE\020\002\022\006\n\002FR\020\003\022\006\n\002IT\020\004\022" +
+      "\006\n\002ES\020\005\022\006\n\002CA\020\006\022\006\n\002UK\020\0072f\n\nSubtitling\022X\n" +
+      "\nTranscribe\022#.sftpprocessor.Transcriptio" +
+      "nRequest\032!.sftpprocessor.TranscriptionRe" +
+      "ply\"\0000\001BK\n0ch.swisstxt.citizenjournalist" +
+      ".sftpprocessor.grpcB\017SubtitlingProtoP\001\242\002" +
+      "\003STPb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
