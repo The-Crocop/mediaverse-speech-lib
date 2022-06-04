@@ -16,7 +16,7 @@ plugins {
 }
 
 group = "io.citizenjournalist.speech"
-version = "1.2"
+version = "1.3"
 
 java {
     withJavadocJar()
@@ -84,6 +84,8 @@ publishing {
         implementation("javax.annotation:javax.annotation-api:1.3.2")
         api("io.grpc:grpc-protobuf")
         api("io.grpc:grpc-stub")
+        api("com.salesforce.servicelibs:reactor-grpc-stub:1.2.3")
+        api("io.projectreactor:reactor-core:3.4.18")
         implementation("io.grpc:grpc-netty-shaded")
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
@@ -98,11 +100,13 @@ publishing {
         generatedFilesBaseDir = "$projectDir/src/generated"
         plugins {
             id("grpc") { artifact = "io.grpc:protoc-gen-grpc-java:1.42.0" }
+            id("reactor") { artifact = "com.salesforce.servicelibs:reactor-grpc:1.2.3"}
         }
         generateProtoTasks {
             all().forEach {
                 it.plugins {
                     id("grpc")
+                    id("reactor")
                 }
                 it.builtins {
                 }

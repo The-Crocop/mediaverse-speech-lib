@@ -10,13 +10,13 @@ Maven Project add this dependency to your pom.xml:
 <dependency>
     <groupId>io.citizenjournalist.speech</groupId>
     <artifactId>transcription-lib-grpc</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 </dependency>
 ```
 
 For gradle add this line to your build.gradle:
 ```
-implementation 'io.citizenjournalist.speech:transcription-lib-grpc:1.1'
+implementation 'io.citizenjournalist.speech:transcription-lib-grpc:1.3'
 ```
 
 ## Sample
@@ -94,6 +94,34 @@ For Async you can use this:
                         .addAllFormat(List.of(SubtitleFormat.SRT, SubtitleFormat.VTT, SubtitleFormat.MP3))
                         .build(), responseObserver
         ); // IMPORTANT this assumes that your application is running as a server or similar. If you run this code by itself it will terminate immediately as the operation is executed asyncronously
+        // channel.shutdownNow(); // add this in your application after your request,session or similar to cleanup the channel
+```
+
+For Reactive use this:
+
+```
+        String API_KEY = System.getenv("API_KEY");
+        var channel = ManagedChannelBuilder.forAddress("speech.citizenjournalist.io", 443)
+                .build();
+        var callCredentials = new BearerToken(API_KEY);
+        var stub = ReactorSubtitlingGrpc.newReactorStub(channel).withCallCredentials(callCredentials);
+
+        stub.transcribe(TranscriptionRequest
+                .newBuilder()
+                .setExternalReference("abcd")
+                .setSourceUrl("https://ipfs.citizenjournalist.io/ipfs/QmPuqoid7n12tR7LkyX6db7hiYWSvXBYTnYejn4rZDJqsY")
+                .addAllOutputLanguages(List.of(Language.EN, Language.DE, Language.FR, Language.IT, Language.ES, Language.CA))
+                .addAllFormat(List.of(SubtitleFormat.SRT, SubtitleFormat.VTT))
+                .build()).subscribe(
+                        next -> {
+                            System.out.println("---");
+                            System.out.println(next);
+                            System.out.println("---");
+                        }, t -> {
+                    System.err.println("An error happened " + t.getMessage());
+                }, () -> {
+                    System.out.println("done");
+                } // IMPORTANT this assumes that your application is running as a server or similar. If you run this code by itself it will terminate immediately as the operation is executed asyncronously
         // channel.shutdownNow(); // add this in your application after your request,session or similar to cleanup the channel
 ```
 
