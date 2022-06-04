@@ -56,7 +56,7 @@ You can set it as environment variable or whatever makes sense for your Applicat
         channel.shutdownNow();
 ```
 
-For Async Futures you can use this:
+For Async you can use this:
 
 ```
         String API_KEY = System.getenv("API_KEY");
