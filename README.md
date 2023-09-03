@@ -124,6 +124,31 @@ For Reactive use this:
                 } // IMPORTANT this assumes that your application is running as a server or similar. If you run this code by itself it will terminate immediately as the operation is executed asyncronously
         // channel.shutdownNow(); // add this in your application after your request,session or similar to cleanup the channel
 ```
+## Text to Speech
+
+In order to get a video's audio directly as audio in another language please add SubtitleFormat.MP3 to the list of formats.
+This will basically create an mp3 file link that contains the spoken audio in another language.
+
+```
+...
+
+        stub.transcribe(TranscriptionRequest
+                .newBuilder()
+                .setExternalReference("abcd")
+                .setSourceUrl("https://ipfs.citizenjournalist.io/ipfs/QmPuqoid7n12tR7LkyX6db7hiYWSvXBYTnYejn4rZDJqsY")
+                .addAllOutputLanguages(List.of(Language.EN, Language.DE, Language.FR, Language.IT, Language.ES, Language.CA))
+                .addAllFormat(List.of(SubtitleFormat.SRT, SubtitleFormat.MP3))
+                .build()).subscribe(
+
+```
+
+## Further Information
+If you want to use the api with another language you can either use 
+https://github.com/fullstorydev/grpcurl
+and use the protobuf file in src/main/proto/subtitling.proto
+
+or generate the stubs with protoc. More information here:
+https://protobuf.dev/    
 
 Take a look in GrpcClientTest for the sample code.
 

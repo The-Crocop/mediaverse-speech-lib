@@ -24,7 +24,7 @@ class GrpcClientTest {
                 .setExternalReference("abcd")
                 .setSourceUrl("https://ipfs.citizenjournalist.io/ipfs/QmPuqoid7n12tR7LkyX6db7hiYWSvXBYTnYejn4rZDJqsY")
                 .addAllOutputLanguages(List.of(Language.EN, Language.DE, Language.FR, Language.IT, Language.FR, Language.ES))
-                .addAllFormat(List.of(SubtitleFormat.SRT, SubtitleFormat.VTT))
+                .addAllFormat(List.of(SubtitleFormat.SRT, SubtitleFormat.VTT, SubtitleFormat.MP3))
                 .build()
         );
         while (transcriptions.hasNext()) {
